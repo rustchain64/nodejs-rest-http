@@ -19,29 +19,77 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>API Level 2 PIE.IO Test - Node.js</title>
+    <title>PIE</title>
 
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+      rel="stylesheet" 
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+      crossorigin="anonymous">
+
+      <style>
+        .body {
+          width: 100vw;
+        }
+        #form_bg {
+          background-color:rgba(255,255,255,.4);
+          border-style: solid;
+          border-width: 1px;
+          border-color:whitesmoke;  
+        }
+        .bg {
+            animation:slide 4s ease-in-out infinite alternate;
+            background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+            bottom:0;
+            left:-50%;
+            opacity:.5;
+            position:fixed;
+            right:-50%;
+            top:0;
+            z-index:-1;
+        }
+        
+        .bg2 {
+            animation-direction:alternate-reverse;
+            animation-duration:2s;
+        }
+        
+        .bg3 {
+            animation-duration:4s;
+        }
+        
+        h1 {
+            font-family:monospace;
+        }
+        
+        @keyframes slide {
+            0% {
+                transform:translateX(-25%);
+            }
+        
+            100% {
+                transform:translateX(25%);
+            }
+        }
+      </style>
   </head>
 
   <body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <!-- don't remove id="app" as it breaks the output-->
     <div class="container" id="app">
+      <div class="card m-3" id="form_bg">
       <div>
-        <h1>API Level 0 Example - Node.js</h1>
-        <p class="lead">
-          This example showcases a basic mapping of a business operation to a
-          remote endpoint. By taking this approach, clients leverage the HTTP
-          protocol as a transport mechanism to call upon services. Application
-          engineers define their APIs using a broad interpretation of REST
-          fundamentals, encouraging freedom in design and quick prototyping.
-        </p>
+        <img
+              alt="Go Free logo"
+              class="nav_logo"
+              src="./images/pie_io_clr_slgn_trns.png"
+              height="80"
+            />
 
-        <h2>Using the greeting service</h2>
+        <h4 class="card-header" >Login</h4>
+        <div class="card-body">
 
         <form class="form-inline" @submit.prevent="getJSON">
           <div class="form-group">
@@ -71,7 +119,9 @@
 
         <h3>Result:</h3>
         <pre><code id="greeting-result">{{greetingResult}}</code></pre>
+        </div>
       </div>
+    </div>
     </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.10/vue.min.js"
